@@ -1,0 +1,1 @@
+# Project 12E - Virtual lolly with SSG and serverless backend.

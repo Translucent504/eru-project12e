@@ -2,7 +2,7 @@ const { ApolloServer, gql } = require("apollo-server-lambda")
 const faunadb = require("faunadb")
 require('dotenv').config()
 const shortid = require('shortid')
-q = faundadb.query
+q = faunadb.query
 
 const typeDefs = gql`
   type Query {
@@ -36,7 +36,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    createLolly: (_, args) => {
+    createLolly: async (_, args) => {
       const client = new faunadb.Client({
         secret: process.env.FAUNA_SECRET,
       })

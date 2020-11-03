@@ -1,6 +1,36 @@
+import { gql, useMutation, useQuery } from "@apollo/client"
 import React, { useState } from "react"
 import { useRef } from "react"
 import Lolly from "../components/Lolly"
+
+const GET_DATA = gql`
+  {
+    hello
+  }
+`
+
+const CREATE_LOLLY = gql`
+  mutation createLolly(
+    $to: String!
+    $from: String!
+    $message: String!
+    $topColor: String!
+    $midColor: String!
+    $botColor: String!
+  ) {
+    createLolly(
+      to: $to
+      from: $from
+      message: $message
+      topColor: $topColor
+      midColor: $midColor
+      botColor: $botColor
+    ) {
+      message
+      lollyPath
+    }
+  }
+`
 
 const CreateNew = () => {
   const [topColor, setTopColor] = useState("#d52358")
@@ -11,20 +41,23 @@ const CreateNew = () => {
   const fromRef = useRef(null)
   const messageRef = useRef(null)
 
-  const handleSubmit = e => {
+  // const { loading, error, data } = useQuery(GET_DATA)
+  const [createLolly] = useMutation(CREATE_LOLLY)
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const formData = {
       to: toRef.current.value,
       from: fromRef.current.value,
       message: messageRef.current.value,
-      lolly: {
-        topColor,
-        midColor,
-        botColor
-      }
+      topColor,
+      midColor,
+      botColor,
     }
-    console.log(formData)
-    e.target.reset()
+    const result = await createLolly({ variables: formData })
+    console.log(result)
+    toRef.current.value = ''
+    fromRef.current.value = ''
+    messageRef.current.value = ''
   }
 
   return (

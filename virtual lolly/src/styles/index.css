@@ -1,0 +1,74 @@
+body {
+  text-align: center;
+  background-color: linen;
+}
+
+header {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lolly-display {
+  display: flex;
+  margin: 50px auto;
+  justify-content: center;
+  border-radius: 5%;
+  background-color: rgb(246, 219, 191);
+}
+
+.lolly-display > svg {
+  height: 300px;
+  flex-shrink: 1;
+  transition: filter 3s, transform 1s;
+}
+
+.lolly-display > svg:hover {
+  filter: hue-rotate(360deg) opacity(0.9);
+  transform: scale(1.2);
+  transition: filter 10s, transform 2s;
+}
+
+.new-lolly-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 800px;
+  margin: auto;
+  border-radius: 20px;
+  background: rgb(228, 198, 168);
+  box-shadow: 10px 8px 5px gray;
+}
+
+.color-picker,
+.lolly-info-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.color-picker > input {
+  margin-bottom: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  appearance: none;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0px 5px 5px gray;
+  padding: 0;
+  cursor: pointer;
+}
+.color-picker > input:last-child {
+  margin-bottom: 80px;
+}
+
+::-webkit-color-swatch-wrapper {
+  border: none;
+  width: 90px;
+  height: 90px;
+  margin: -5px 0 0 -5px;
+}
+
+.lolly-info-form {
+  text-align: left;
+}

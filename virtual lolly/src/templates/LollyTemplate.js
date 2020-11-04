@@ -4,7 +4,7 @@ import Lolly from "../components/Lolly"
 const LollyTemplate = ({ pageContext }) => {
   const lolly = pageContext.data
   return (
-    <div class="freezer-container">
+    <div className="freezer-container">
       <Lolly
         fillLollyTop={lolly.topColor}
         fillLollyMiddle={lolly.midColor}

@@ -1,6 +1,5 @@
 import { gql, useQuery } from "@apollo/client"
 import React from "react"
-import { useEffect } from "react"
 import LollyTemplate from "../templates/LollyTemplate"
 
 const GET_LOLLY = gql`
@@ -19,12 +18,9 @@ const GET_LOLLY = gql`
 
 const NotFound = ({ location }) => {
   const lollyPath = location.pathname.slice(1)
-  const { loading, error, data } = useQuery(GET_LOLLY, {
+  const { loading, data } = useQuery(GET_LOLLY, {
     variables: { lollyPath },
   })
-  useEffect(() => {
-    console.log(loading, data)
-  }, [data, loading])
   return (
     <>
       {data && <LollyTemplate pageContext={{ data: data.getLolly }} />}

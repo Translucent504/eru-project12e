@@ -27,11 +27,17 @@ const NotFound = ({ location }) => {
   }, [data, loading])
   return (
     <>
-      {data && <LollyTemplate pageContext={{data: data.getLolly}}/>}
+      {data && <LollyTemplate pageContext={{ data: data.getLolly }} />}
       {loading && (
         <h1>
-          Your lolly for {lollyPath} is currently freezing or might not even exist!, check back in 2 to 3
-          minutes.
+          Searching for Your lolly with id: {lollyPath} in the freezer, Please
+          wait.
+        </h1>
+      )}
+      {!loading && !data && (
+        <h1>
+          Woops! Can't find your lolly, maybe you wrote the wrong id? or are you
+          just playing around with the url.
         </h1>
       )}
     </>

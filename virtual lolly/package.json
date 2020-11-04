@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
+    "faunadb": "^3.0.1",
     "gatsby": "^2.24.91",
     "gatsby-source-graphql": "^2.7.6",
     "react": "^16.12.0",

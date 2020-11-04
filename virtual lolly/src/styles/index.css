@@ -72,3 +72,17 @@ header {
 .lolly-info-form {
   text-align: left;
 }
+
+.message-from-freezer {
+  resize: none;
+  text-align: center
+}
+
+.freezer-container {
+  width: 800px;
+  margin: auto;
+  border-radius: 20px;
+  background: rgb(228, 198, 168);
+  box-shadow: 10px 8px 5px gray;
+  padding: 10px;
+}

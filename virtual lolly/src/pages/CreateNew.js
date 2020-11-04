@@ -1,13 +1,10 @@
-import { gql, useMutation, useQuery } from "@apollo/client"
+import { gql, useMutation } from "@apollo/client"
+import { navigate } from "gatsby"
 import React, { useState } from "react"
 import { useRef } from "react"
 import Lolly from "../components/Lolly"
 
-const GET_DATA = gql`
-  {
-    hello
-  }
-`
+
 
 const CREATE_LOLLY = gql`
   mutation createLolly(
@@ -54,6 +51,7 @@ const CreateNew = () => {
       botColor,
     }
     const result = await createLolly({ variables: formData })
+    navigate(`/${result.data.createLolly.lollyPath}`)
     console.log(result)
     toRef.current.value = ''
     fromRef.current.value = ''
@@ -93,11 +91,11 @@ const CreateNew = () => {
           />
         </div>
         <form onSubmit={handleSubmit} className="lolly-info-form">
-          <label>
-            To: <input ref={toRef} type="text" />{" "}
+          <label >
+            To: <input  ref={toRef} type="text" />{" "}
           </label>
-          <label>Message:</label>
-          <textarea ref={messageRef} rows="15" columns="30" />
+          <label htmlFor="message">Message:</label>
+          <textarea id="message" ref={messageRef} rows="15" columns="30" />
           <label>
             From: <input ref={fromRef} type="text" />{" "}
           </label>

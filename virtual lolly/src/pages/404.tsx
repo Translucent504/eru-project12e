@@ -24,7 +24,7 @@ const NotFound = ({ location } : PageProps) => {
   })
   return (
     <>
-      {data && <LollyFromData lolly={data.getLolly} location={location.href} />}
+      {data && <LollyFromData lolly={data.getLolly} location={location} />}
       {loading && (
         <h1>
           Searching for Your lolly with id: {lollyPath} in the freezer, Please

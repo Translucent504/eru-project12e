@@ -1,7 +1,7 @@
 const path = require("path")
 exports.createPages = async ({ actions }) => {
   const faunadb = require("faunadb")
-  // require("dotenv").config()
+  require("dotenv").config()
   q = faunadb.query
   const client = new faunadb.Client({
     secret: process.env.FAUNA_SECRET,

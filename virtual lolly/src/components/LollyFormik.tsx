@@ -25,7 +25,6 @@ const LollyFormik = props => {
     <Formik
       initialValues={initialValues}
       onSubmit={(values, actions) => {
-        console.log(values)
         props.onSubmit(values)
       }}
       validationSchema={Schema}

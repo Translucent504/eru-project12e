@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useRef } from "react"
 import Lolly from "./Lolly"
 
 const LollyFromData = ({lolly, location}) => {
+    const shareRef = useRef(null)
   return (
     <div className="freezer-container">
       <Lolly

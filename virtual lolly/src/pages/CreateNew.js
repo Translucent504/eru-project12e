@@ -1,7 +1,6 @@
 import { gql, useMutation } from "@apollo/client"
 import { navigate } from "gatsby"
 import React, { useState } from "react"
-import { useRef } from "react"
 import Lolly from "../components/Lolly"
 import LollyFormik from "../components/LollyFormik"
 
@@ -45,9 +44,6 @@ const CreateNew = () => {
       botColor,
     }
     const result = await createLolly({ variables: formData })
-    toRef.current.value = ""
-    fromRef.current.value = ""
-    messageRef.current.value = ""
     navigate(`/${result.data.createLolly.lollyPath}`)
   }
 

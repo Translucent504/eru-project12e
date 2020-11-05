@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import Lolly from "../components/Lolly"
+import { PageProps} from 'gatsby'
 
 interface TemplateProps {
   pageContext: {
@@ -13,9 +14,10 @@ interface TemplateProps {
       message: string
     }
   }
+  location: PageProps["location"]
 }
 
-const LollyTemplate = ({ pageContext }: TemplateProps) => {
+const LollyTemplate = ({ pageContext, location }: TemplateProps) => {
   const lolly = pageContext.data
   const shareRef = useRef(null)
   return (
@@ -39,7 +41,7 @@ const LollyTemplate = ({ pageContext }: TemplateProps) => {
           value={lolly.message}
         ></textarea>
         <h2>Share it with:</h2>
-        <input type="text" value={window.location.href} ref={shareRef} />{" "}
+        <input type="text" value={location.href} ref={shareRef} />{" "}
         <button onClick={() => {
           const thing = shareRef.current
           thing.select()

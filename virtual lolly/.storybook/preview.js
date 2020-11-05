@@ -2,6 +2,8 @@ export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
 }
 
+import '../src/styles/index.css'
+
 import { action } from "@storybook/addon-actions"
 
 // Gatsby's Link overrides:

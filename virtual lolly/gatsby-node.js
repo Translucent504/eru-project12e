@@ -20,7 +20,7 @@ exports.createPages = async ({ actions }) => {
     const data = lolly.data
     createPage({
       path: `/${data.lollyPath}/`,
-      component: path.resolve(`./src/templates/LollyTemplate.js`),
+      component: path.resolve(`./src/templates/LollyTemplate.tsx`),
       // The context is passed as props to the component as well
       // as into the component's GraphQL query.
       context: {

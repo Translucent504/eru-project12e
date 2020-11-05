@@ -3,8 +3,7 @@ import { navigate } from "gatsby"
 import React, { useState } from "react"
 import { useRef } from "react"
 import Lolly from "../components/Lolly"
-
-
+import LollyFormik from "../components/LollyFormik"
 
 const CREATE_LOLLY = gql`
   mutation createLolly(
@@ -34,28 +33,22 @@ const CreateNew = () => {
   const [midColor, setMidColor] = useState("#e95946")
   const [botColor, setBotColor] = useState("#deaa43")
 
-  const toRef = useRef(null)
-  const fromRef = useRef(null)
-  const messageRef = useRef(null)
-
   // const { loading, error, data } = useQuery(GET_DATA)
   const [createLolly] = useMutation(CREATE_LOLLY)
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async ({ to, from, message }) => {
     const formData = {
-      to: toRef.current.value,
-      from: fromRef.current.value,
-      message: messageRef.current.value,
+      to,
+      from,
+      message,
       topColor,
       midColor,
       botColor,
     }
     const result = await createLolly({ variables: formData })
+    toRef.current.value = ""
+    fromRef.current.value = ""
+    messageRef.current.value = ""
     navigate(`/${result.data.createLolly.lollyPath}`)
-    console.log(result)
-    toRef.current.value = ''
-    fromRef.current.value = ''
-    messageRef.current.value = ''
   }
 
   return (
@@ -90,17 +83,7 @@ const CreateNew = () => {
             value={botColor}
           />
         </div>
-        <form onSubmit={handleSubmit} className="lolly-info-form">
-          <label >
-            To: <input  ref={toRef} type="text" />{" "}
-          </label>
-          <label htmlFor="message">Message:</label>
-          <textarea id="message" ref={messageRef} rows="15" columns="30" />
-          <label>
-            From: <input ref={fromRef} type="text" />{" "}
-          </label>
-          <input type="submit" value="Create" />
-        </form>
+        <LollyFormik onSubmit={handleSubmit} />
       </main>
     </div>
   )

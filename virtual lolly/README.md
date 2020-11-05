@@ -4,13 +4,13 @@
 [View Storybook](https://master--5fa3dfcc4f04710022b3df86.chromatic.com/)
 
 # Storybook
-![storybook](storybook.png)
+![storybook](../storybook.png)
 
 # Demo:
 ## Main Page:
-![1](1.png)
+![1](../1.png)
 ## Create Lolly:
-![2](2.png)
+![2](../2.png)
 ## Display Lolly:
-![3](3.png)
+![3](../3.png)
 

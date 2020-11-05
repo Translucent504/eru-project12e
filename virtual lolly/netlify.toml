@@ -2,3 +2,4 @@
     command = "yarn build"
     publish = "public"
     functions = "functions"
+    ignore = "git diff --quiet HEAD^ HEAD virtual\ lolly/"

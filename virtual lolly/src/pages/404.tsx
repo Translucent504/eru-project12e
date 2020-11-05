@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client"
 import React from "react"
 import LollyTemplate from "../templates/LollyTemplate"
+import { PageProps } from "gatsby"
 
 const GET_LOLLY = gql`
   query getLolly($lollyPath: String!) {
@@ -16,7 +17,7 @@ const GET_LOLLY = gql`
   }
 `
 
-const NotFound = ({ location }) => {
+const NotFound = ({ location } : PageProps) => {
   const lollyPath = location.pathname.slice(1)
   const { loading, data } = useQuery(GET_LOLLY, {
     variables: { lollyPath },

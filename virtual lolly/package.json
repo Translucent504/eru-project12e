@@ -1,35 +1,44 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "eru-virtual-lolly",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A virtual lolly site with a serverless faunadb backend and custom build hooks",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
-    "prebuild" : "cd functions/lolly-graphql && npm i",
+    "prebuild": "cd functions/lolly-graphql && npm i",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "storybook": "start-storybook -p 6006 --no-dll",
+    "build-storybook": "build-storybook --no-dll"
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
     "faunadb": "^3.0.1",
     "gatsby": "^2.24.91",
-    "gatsby-source-graphql": "^2.7.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "prettier": "2.1.2"
+    "@babel/core": "^7.12.3",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/react": "^6.0.28",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^10.0.0",
+    "prettier": "2.1.2",
+    "react-is": "^17.0.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/translucent504/eru-project12e"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/translucent504/eru-project12e/issues"
   }
 }
